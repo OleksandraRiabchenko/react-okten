@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import Simpson from "./components/simpson/Simpson";
 import Menu from "./components/menu/Menu";
 import Simpsons from "./components/simpsons/Simpsons";
 
