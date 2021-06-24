@@ -1,11 +1,11 @@
 import './App.css';
-import Posts from './components/posts/Posts'
+import Users from './components/users/Users';
 
 
 function App() {
     return (
         <div>
-            <Posts/>
+            <Users/>
         </div>
     );
 }
