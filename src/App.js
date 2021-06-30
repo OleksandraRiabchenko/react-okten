@@ -28,7 +28,7 @@ export default function App() {
         <hr/>
         <div className={'posts'}>
           {
-            user && <h3>{`${JSON.stringify(user.name)} posts:`}</h3>
+            user && <h3>{`${user.name} posts:`}</h3>
           }
           {
             posts && <div>{posts.map(value => <Post key={value.id} item={value}/>)} </div>
