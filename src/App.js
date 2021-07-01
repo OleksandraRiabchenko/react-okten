@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import { getUsers, getUser, getPosts, getComments } from './services/API'
 import Users from './components/users/Users';
 import Comments from './components/comments/Comments';
-import Post from './components/posts/Post'
+import Posts from './components/posts/Posts'
 
 export default function App() {
-  let [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     getUsers().then(value => {
@@ -14,9 +14,9 @@ export default function App() {
     })
   }, [])
 
-  let [user, setUser] = useState(null);
-  let [posts, setPosts] = useState(null)
-  let [comments, setComments] = useState(null);
+  const [user, setUser] = useState(null);
+  const [posts, setPosts] = useState(null)
+  const [comments, setComments] = useState(null);
 
   const showPosts = (id) => {
     getUser(id).then(value => setUser(value.data))
@@ -29,24 +29,19 @@ export default function App() {
   return (
       <div className={'wrap'}>
         <Users items={users} showPosts={showPosts}/>
+
         <hr/>
+
         <div className={'posts'}>
           {
             user && <h3>{`${user.name} posts:`}</h3>
           }
           {
-            posts &&
-            <div>
-              {posts.map(value => <Post key={value.id} item={value} showComments={showComments}/>)}
-            </div>
+            posts && <div><Posts items={posts} showComments={showComments}/></div>
           }
           <hr/>
           {
-            comments &&
-            <div>
-              <h4>{'Comment on this post:'}</h4>
-              {comments.map(value => <Comments key={value.id} items={value}/>)}
-            </div>
+            comments && <div><Comments items={comments}/></div>
           }
         </div>
       </div>
