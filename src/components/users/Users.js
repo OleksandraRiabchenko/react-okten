@@ -1,27 +1,17 @@
 import { useEffect, useState } from "react";
+import {getUsers} from '../../services/API'
+import User from '../user/User'
 
 export default function Users() {
-
-    // let state = useState([]);
-    // let usersList = state[0]; // массив юзеров, который будем перебирать с помощью map()
-    // let setUsersList = state[1]; // сеттер - функция, кот. будет изменять состояние usersList
-    // это то же самое что и выше
-
-    let [usersList, setUsersList] = useState([]);
+const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(value => value.json())
-            .then(response => {
-                setUsersList(response);
-            });
-    }, []);
+        getUsers().then(value => setUsers([...value.data]))
+       }, []);
 
     return(
         <div>
-            {
-                usersList.map(value => <div>{value.id} - {value.name}</div>)
-            }
+            {users.map(value => <User key={value.id} item={value}/> )}
         </div>
     )
 }

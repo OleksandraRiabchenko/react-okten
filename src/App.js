@@ -1,12 +1,25 @@
-import './App.css';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import Users from './components/users/Users';
+import Posts from './components/posts/Posts';
+import Comments from './components/comments/Comments';
 
-function App() {
+export default function App() {
     return (
         <div>
-            <Users/>
+            <Router>
+                <div><Link to="/users">users page </Link></div>
+                <div><Link to="/posts">posts page</Link></div>
+                <div><Link to="/comments">comments page </Link></div>
+
+                <Switch>
+                    <Route path={'/users'}><Users/></Route>
+                    <Route path={'/posts'} render={() => <Posts/>}/>
+                    <Route path={'/comments'} component={Comments}/>
+                </Switch>
+            </Router>
+
         </div>
     );
 }
 
-export default App;
+
