@@ -1,5 +1,7 @@
+import '../../App.css'
 import { useState} from 'react';
 import {getComments} from '../../services/comment.service'
+import Comments from '../comments/Comments'
 
 
 export default function Post({item}) {
@@ -8,7 +10,7 @@ export default function Post({item}) {
   return (
       <div>
           {item.id}-{item.title}
-          <button onClick={ () => {
+          <button className={'button'} onClick={ () => {
               getComments(item.id).then(value => setComments(value.data))
           }}>show comments</button>
 

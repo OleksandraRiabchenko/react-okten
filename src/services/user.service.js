@@ -4,7 +4,7 @@ const axiosInstanse = axios.create({baseURL: 'https://jsonplaceholder.typicode.c
 
 const getUsers = () => axiosInstanse('');
 const getUser = (id) => axiosInstanse('/' + id);
-// const getPosts = (id) => axiosInstanse('/' + id + '/posts');
+const getUserPosts = (id) => axiosInstanse('/' + id + '/posts');
 
 
-export {getUsers, getUser}
+export {getUsers, getUser,getUserPosts}
