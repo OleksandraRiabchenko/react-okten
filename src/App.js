@@ -8,7 +8,7 @@ import {createContext} from 'react';
 export const MyContext = createContext();
 export default function App() {
     const x = 'hello';
-    const y = 'okten'
+    const y = {name: 'okten'};
     return (
         //</MyContext> повинен обгортати все що ми передаємо, Provider - підоб'єкт MyContext.
         // у Provider є пропса яка називається value, куди і потрібно передавати об'єкт, який має бути доступний в інших місцях

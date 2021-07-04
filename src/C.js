@@ -7,8 +7,10 @@ export default function C({x}) {
         в якому викликаємо функцію, яка в якості аргумента приймає пропсу з Provider (val)  (назва довільна)*/}
             {/*x - наша змінна передана за допомогою propertyDrill*/}
             {
-                (val) => {
-                    return <div>{x} {val}</div>
+                // (val) => {
+                //     return <div>{x} {val.name}</div> або 2й варіант одразу до проперті name
+                ({name}) => {
+                    return <div>{x} {name}</div>
                 }
             }
         </MyContext.Consumer>
